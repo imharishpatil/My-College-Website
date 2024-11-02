@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp page</title>
-    <!--title logo-->
-    <link rel="icon" href="./logos/BCALogo.svg" type="image/icon type">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/build.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp page</title>
+  <!--title logo-->
+  <link rel="icon" href="./logos/BCALogo.svg" type="image/icon type">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/build.css">
 </head>
+
 <body class="bg-transparent">
-<!--Spinner--> 
-<div id="spinner" class="min-h-screen w-full bg-gray-100 z-50 fixed flex justify-center items-center">
-  <div class="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin"></div>
+  <!--Spinner-->
+  <div id="spinner" class="min-h-screen w-full bg-gray-100 z-50 fixed flex justify-center items-center">
+    <div class="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin"></div>
   </div>
   <!--Spinner-->
 
-     <!--regestration form-->
-     <div class="container mx-auto py-8">
-        <h1 class="text-2xl font-bold mb-6 text-center">Registration Form</h1>
-        <!--slider button for admin and student-->
-      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <div class="flex items-center justify-center space-x-8 text-center text-blue-950 font-bold">
-          <button id="std-btn" class="border-b-2 border-yellow-400">Student</button>
-          <p class="font-thin">|</p>
-          <button id="admin-btn" class="border-yellow-400">Admin</button>
-        </div>
+  <!--regestration form-->
+  <div class="container mx-auto py-8">
+    <h1 class="text-2xl font-bold mb-6 text-center">Registration Form</h1>
+    <!--slider button for admin and student-->
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="flex items-center justify-center space-x-8 text-center text-blue-950 font-bold">
+        <button id="std-btn" class="border-b-2 border-yellow-400">Student</button>
+        <p class="font-thin">|</p>
+        <button id="admin-btn" class="border-yellow-400">Admin</button>
       </div>
-  
-   
-  <!--register page for student-->
-  
+    </div>
+
+
+    <!--register page for student-->
+
     <form id="std-form" class="w-full max-w-sm md:max-w-screen-md mx-auto bg-white p-8 rounded-md shadow-md">
       <!--Student Name-->
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
         <div class="md:flex md:space-x-2">
-        <input class="w-full mb-2 md:mb-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
-          type="text" id="std-f-name" name="std first name" placeholder="First Name">
-        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
-          type="text" id="std-l-name" name="std last name" placeholder="Last Name">
+          <input
+            class="w-full mb-2 md:mb-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
+            type="text" id="std-f-name" name="std first name" placeholder="First Name">
+          <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
+            type="text" id="std-l-name" name="std last name" placeholder="Last Name">
         </div>
-       
-      <!--Student Register No.-->
+
+        <!--Student Register No.-->
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Register No.</label>
@@ -53,29 +56,30 @@
       <!--Student Sem-->
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="semester">Semester</label>
-        <select class="w-1/3 text-center px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
-         id="semester" name="semester" aria-placeholder="select">
-            <option value="1">I</option>
-            <option value="2">II</option>
-            <option value="3">III</option>
-            <option value="4">IV</option>
-            <option value="5">V</option>
-            <option value="6">VI</option>
+        <select
+          class="w-1/3 text-center px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
+          id="semester" name="semester" aria-placeholder="select">
+          <option value="1">I</option>
+          <option value="2">II</option>
+          <option value="3">III</option>
+          <option value="4">IV</option>
+          <option value="5">V</option>
+          <option value="6">VI</option>
         </select>
       </div>
 
       <!--Student Gender-->
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="gender">Gender</label>
-          <input class="mx-2 px-3 py-2 border border-gray-300  focus:outline-none focus:border-blue-950"
-          type="radio" id="std-male" name="gender" value="male" checked>
-          <label class="text-gray-700 text-sm font-semibold" for="male">Male</label>
-          <input class="mx-2 px-3 py-2 border border-gray-300  focus:outline-none focus:border-blue-950"
-          type="radio" id="std-female" name="gender" value="female">
-          <label class="text-gray-700 text-sm font-semibold" for="female">Female</label>
-          <input class="mx-2 px-3 py-2 border border-gray-300  focus:outline-none focus:border-blue-950"
-          type="radio" id="std-other" name="gender" value="other">
-          <label class="text-gray-700 text-sm font-semibold" for="other">Other</label>
+        <input class="mx-2 px-3 py-2 border border-gray-300  focus:outline-none focus:border-blue-950" type="radio"
+          id="std-male" name="gender" value="male" checked>
+        <label class="text-gray-700 text-sm font-semibold" for="male">Male</label>
+        <input class="mx-2 px-3 py-2 border border-gray-300  focus:outline-none focus:border-blue-950" type="radio"
+          id="std-female" name="gender" value="female">
+        <label class="text-gray-700 text-sm font-semibold" for="female">Female</label>
+        <input class="mx-2 px-3 py-2 border border-gray-300  focus:outline-none focus:border-blue-950" type="radio"
+          id="std-other" name="gender" value="other">
+        <label class="text-gray-700 text-sm font-semibold" for="other">Other</label>
       </div>
 
       <!--Student Phone No.-->
@@ -103,25 +107,26 @@
       <button
         class="w-full bg-blue-950 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-900 transition duration-300"
         type="submit">Register</button>
-        <p class="mt-5 text-center text-sm text-gray-500">Already a member?
-            <a href="./index.html" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Signin now</a>
-          </p>
-        </form>
-  <!--End register page for student-->
-  
-  <!--register page for Admin-->
+      <p class="mt-5 text-center text-sm text-gray-500">Already a member?
+        <a href="./index.html" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Signin now</a>
+      </p>
+    </form>
+    <!--End register page for student-->
+
+    <!--register page for Admin-->
     <form id="admin-form" class="hidden w-full max-w-sm md:max-w-screen-md mx-auto bg-white p-8 rounded-md shadow-md">
-     <!--Admin Name-->
+      <!--Admin Name-->
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Admin Name</label>
         <div class="md:flex md:space-x-2">
-        <input class="w-full mb-2 md:mb-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
-          type="text" id="admin-f-name" name="admin first name" placeholder="First Name">
-        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
-          type="text" id="admin-l-name" name="admin last name" placeholder="Last Name">
+          <input
+            class="w-full mb-2 md:mb-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
+            type="text" id="admin-f-name" name="admin first name" placeholder="First Name">
+          <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-950"
+            type="text" id="admin-l-name" name="admin last name" placeholder="Last Name">
         </div>
 
-      <!--Admin Username-->  
+        <!--Admin Username-->
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
@@ -154,37 +159,38 @@
       <button
         class="w-full bg-blue-950 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-900 transition duration-300"
         type="submit">Register</button>
-        <p class="mt-5 text-center text-sm text-gray-500">Already a member?
-            <a href="./index.html" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Signin now</a>
-          </p>
+      <p class="mt-5 text-center text-sm text-gray-500">Already a member?
+        <a href="./index.html" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Signin now</a>
+      </p>
     </form>
   </div>
   <!--End regestration form-->
-    <script>
-      //spinner
-window.onload = function() {
-  document.getElementById("spinner").classList.add("hidden");
-}
+  <script>
+    //spinner
+    window.onload = function () {
+      document.getElementById("spinner").classList.add("hidden");
+    }
 
-      //slider for admin & student
-      const studentBtn = document.querySelector("#std-btn");
-        const stdForm = document.querySelector("#std-form");
-        const adminBtn = document.querySelector("#admin-btn");
-        const adminForm = document.querySelector("#admin-form");
+    //slider for admin & student
+    const studentBtn = document.querySelector("#std-btn");
+    const stdForm = document.querySelector("#std-form");
+    const adminBtn = document.querySelector("#admin-btn");
+    const adminForm = document.querySelector("#admin-form");
 
-        studentBtn.addEventListener('click',() => {
-            studentBtn.classList.add("border-b-2");
-            adminBtn.classList.remove("border-b-2");
-            stdForm.classList.remove("hidden");
-            adminForm.classList.add("hidden");
-        });
-        
-        adminBtn.addEventListener('click',() => {
-            studentBtn.classList.remove("border-b-2");
-            adminBtn.classList.add("border-b-2");
-            stdForm.classList.add("hidden");
-            adminForm.classList.remove("hidden");
-        });
-    </script>
+    studentBtn.addEventListener('click', () => {
+      studentBtn.classList.add("border-b-2");
+      adminBtn.classList.remove("border-b-2");
+      stdForm.classList.remove("hidden");
+      adminForm.classList.add("hidden");
+    });
+
+    adminBtn.addEventListener('click', () => {
+      studentBtn.classList.remove("border-b-2");
+      adminBtn.classList.add("border-b-2");
+      stdForm.classList.add("hidden");
+      adminForm.classList.remove("hidden");
+    });
+  </script>
 </body>
+
 </html>
