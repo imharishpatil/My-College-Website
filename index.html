@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLDEA's BCA</title>
+    <!--title logo-->
+    <link rel="icon" href="./logos/BCALogo.svg" type="image/icon type">
+    <!--custom style sheet-->
+    <link rel="stylesheet" href="/style.css">
+    <!--conecting to tailwind css-->
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+
+</head>
+<body class="h-full m-0 p-0 box-border font-sans">
+
+  <!--Spinner--> 
+  <div id="spinner" class="min-h-screen w-full bg-gray-100 z-50 fixed flex justify-center items-center">
+<div class="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin"></div>
+</div>
+<!--Spinner-->
+
+
+    <!--Header Part-->
+    <header id="header-section">
+        <!--header top-->
+        <div class="hidden w-full bg-blue-950 sm:block">
+          <ul class="text-sm text-nowrap w-1/2 p-4 text-white flex flex-nowrap justify-center space-x-8">
+                <li class="flex items-center">
+                <img src="logos/phone.png" class="h-3 lg:h-4 w-auto mr-2" alt="phone" />
+                <p>08353 220003</p>
+                </li>
+              <li class="flex items-center">
+                <img src="logos/email.png" class="h-3 lg:h-4 w-auto mr-2" alt="email" />
+                <p>bldeajkd@yahoo.in</p>
+              </li>
+            </ul>
+          </div>
+        <!--End header top-->
+
+        <!--college logo and name container-->
+        <div class="flex flex-col items-center justify-center space-y-3 border-b border-gray-300 sm:flex-row sm:flex-nowrap sm:justify-center sm:space-x-8">
+          <div>
+            <img src="logos/clboth.png" class="h-20 w-auto mt-4 sm:hidden" alt="clg logo 1&2">
+          </div>
+            <div>
+              <img src="logos/collegelogo1.png" class="hidden min-h-fit w-auto sm:block" alt="clg logo 1" />
+            </div>
+            <div class="text-sm text-center font-semibold pl-4 sm:text-xl lg:text-2xl">
+              <h2>
+                  BLDEA's<br/>Commerce, BHS Arts & TGP Science College,
+                  Jamakhandi
+                </h2>
+                <h1 class="font-bold text-center">BCA DEPARTMENT</h1>
+            </div>
+            <div>
+              <img src="logos/collegelogo2.png" class="hidden min-h-fit w-auto lg:ml-4 sm:block" alt="clg logo 2" />
+            </div>
+          </div>
+        </div>
+        <!-- End college logo and name container-->
+         
+      <!--Header Part-->    
+      </header>
+
+<!--navigation-->
+<nav id="nav-bar" class="bg-gray-100 sticky top-0 z-40">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button type="button" id="menu-btn" class="relative inline-flex items-center justify-center rounded-md p-2 text-black">
+                  <span class="absolute -inset-0.5"></span>
+                  <span class="sr-only">Open main menu</span>
+                  <!--Icon when menu is closed.-->
+                  <svg id="icon-closed" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+                  <!--Icon when menu is open.-->
+                  <svg id="icon-open" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+              </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex flex-shrink-0 items-center">
+                  <img href="#" class="h-12 w-auto rounded-md cursor-pointer" src="./logos/BCALogo.svg" alt="BCA">
+              </div>
+              <div class="hidden sm:ml-6 sm:block">
+                  <div class="flex space-x-4">
+                      <a class="rounded-md px-3 py-2 text-md font-medium text-black hover:text-yellow-400" href="index.html">HOME</a>
+                      <a href="#" onclick="goToAbout()" class="rounded-md px-3 py-2 text-md font-medium text-black hover:text-yellow-400">About</a>
+                      <a href="#" onclick="goToSubjects()" class="rounded-md px-3 py-2 text-md font-medium text-black hover:text-yellow-400">Subjects</a>
+                      <a href="#" onclick="goToFaculty()" class="rounded-md px-3 py-2 text-md font-medium text-black hover:text-yellow-400">Faculty</a>
+                  </div>
+              </div>
+          </div>
+          <!--signup & login buttons-->
+          <div class="flex">
+              <button type="button" id="signin-trigger" class="mx-2 block px-4 py-1 leading-loose text-xs text-center text-blue-900 font-semibold border-2 border-blue-900 bg-gray-100 hover:bg-gray-200 rounded-xl">Log in
+              </button>
+              <button type="button" id="signup-trigger" class="block px-4 py-1 leading-loose text-xs text-center text-white font-semibold bg-blue-900 hover:bg-blue-950 rounded-xl">Sign up
+              </button>
+          </div>
+          <!--End signup & login buttons-->
+      </div>
+  </div>
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <a  class="block rounded-md bg-gray-300 px-3 py-2 text-base font-medium text-black" href="index.html">Dashboard</a>
+      <a href="#" onclick="goToAbout()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 hover:text-yellow-400">About</a>
+      <a href="#" onclick="goToSubjects()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 hover:text-yellow-400">Subjects</a>
+      <a href="#" onclick="goToFaculty()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 hover:text-yellow-400">Faculty</a>
+    </div>
+  </div>
+</nav>
+<!--navigation-->
+
+    <!--sliding banner images-->
+    <section id="sliding-images">
+<div class="relative w-full z-0">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+         <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" slidingImages>
+            <img src="./gallery/g1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 md:top-1/3 left-1/2" alt="...">
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" slidingImages>
+            <img src="./gallery/g2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 md:top-3/4 left-1/2" alt="...">
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" slidingImages>
+            <img src="./gallery/g3.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 md:top-3/4 left-1/2" alt="...">
+        </div>
+        
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" sliding-Image-prev>
+        <span class="inline-flex items-center justify-center w-20 h-20 rounded-full">
+            <svg class="hidden md:block w-8 h-8 text-gray-300 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" sliding-Image-next>
+        <span class="inline-flex items-center justify-center w-20 h-20">
+            <svg class="hidden md:block w-8 h-8 text-gray-300 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+</section>
+<!--sliding banner images-->
+
+  <!-- signin form-->
+  <section id="signin-section">
+    <div class="flex min-h-full flex-col justify-center px-6 lg:px-8 bg-gray-100">
+     <div>
+     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+       <h2 class="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+     </div>
+
+     <!--slider button for admin and student-->
+     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+       <div class="flex items-center justify-center space-x-8 text-center text-blue-950 font-bold">
+         <button id="std-btn" class="border-b-2 border-yellow-400">Student</button>
+         <p class="font-thin">|</p>
+         <button id="admin-btn" class="border-yellow-400">Admin</button>
+       </div>
+     </div>
+
+     <!--sudent sign in page-->
+     <div id="std-form">
+     <!--label & input for register no-->
+     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+       <form class="space-y-6 " action="#" method="POST">
+         <div>
+           <label for="regno" class="block text-sm font-medium leading-6 text-gray-900">Register No.</label>
+           <div class="mt-2">
+             <input id="regno" name="regno" type="text" required placeholder="Enter RegisterNo." class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:pl-2 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-start">
+           </div>
+         </div>
+
+         <!--label & input for password-->
+         <div>
+           <div>
+             <label  for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+           </div>
+           <div class="mt-2">
+             <input id="std-password" name="password" type="password" required placeholder="Enter Password" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:pl-2 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+             <div class="text-sm">
+               <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+             </div>
+           </div>
+         </div>
+
+         <!--submit button-->
+         <div>
+           <button type="submit" class="flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-950 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-950">Sign in</button>
+         </div>
+       </form>
+
+       <!--signup link-->
+       <p class="my-5 text-center text-sm text-gray-500">Not a member?
+         <a href="./signup.html" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register now</a>
+       </p>
+     </div>
+   </div><!--student sign in-->
+
+   <!--sign in page for admin-->
+   <div id="admin-form" class="hidden">
+     <!--label & input for register no-->
+     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+       <form class="space-y-6 " action="#" method="POST">
+         <div>
+           <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Admin Username</label>
+           <div class="mt-2">
+             <input id="admin-username" name="admin-username" type="text" required placeholder="Enter Username" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:pl-2 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-start">
+           </div>
+         </div>
+
+         <!--label & input for password-->
+         <div>
+           <div>
+             <label  for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+           </div>
+           <div class="mt-2">
+             <input id="admin-password" name="password" type="password" required placeholder="Enter Password" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:pl-2 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+             <div class="text-sm">
+               <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+             </div>
+           </div>
+         </div>
+
+         <!--submit button-->
+         <div>
+           <button type="submit" class="flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-950 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-950">Sign in</button>
+         </div>
+       </form>
+
+       <!--signup link-->
+       <p class="my-5 text-center text-sm text-gray-500">Not a member?
+         <a href="./signup.html" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register now</a>
+       </p>
+     </div>
+   </div><!--admin sign in-->
+
+   </div>
+    </div>
+   </section><!--sign in form-->
+
+    <!--About BCA-->
+    <section id="about-section">
+      <div class="flex flex-col space-y-4 justify-center items-center m-4 p-4 z-0">
+        <h1 class="font-semibold text-blue-950 text-xl m-4">About BCA
+          <div class="h-0.5 w-1/2 bg-yellow-400 mt-1"></div>
+        </h1>
+
+        <h2 class="font-bold font-serif text-2xl">Empowering the Next Generation of IT professionals</h2>
+        <p class="text-center md:mx-40 lg:mx-60">The Bachelor of Computer Applications (BCA) is an undergraduate degree designed to equip students with the essential
+          skills and knowledge required in the dynamic field of information technology. This course typically covers a range of
+          subjects, including programming languages, database management, web development, and software engineering, blending
+          theoretical concepts with practical applications.</p>
+          <p class="text-center hidden md:mx-40 lg:mx-60" id="read-more">BCA prepares students for various roles in the IT industry, such as software developer, systems analyst, and network
+            administrator. The curriculum often includes project work, internships, and exposure to current technologies,
+            fostering problem-solving abilities and critical thinking. With the growing demand for tech professionals, a BCA
+            degree opens up numerous career opportunities and serves as a strong foundation for further studies in computer
+            science or related fields.</p>
+         
+          
+          <button class="bg-yellow-400 p-2 rounded-md font-semibold text-sm hover:bg-yellow-500" read-more>Read more</button>
+      </div>
+    </section>
+    <!--End About BCA-->
+
+  <!--Subjects section-->
+  <section id="subjects-section">
+    <div class="bg-gray-100 p-10 z-0">
+    <div class="flex justify-between mx-4">
+    <div class="w-fit">
+    <h1 class="font-semibold text-blue-950 text-xl">Subjects
+      <div class="h-0.5 w-1/2 bg-yellow-400 mt-1"></div>
+    </h1>
+  </div>
+  <!--Next & prev buttons-->
+  <div>
+    <button class="prev-btn bg-gray-200 py-2 px-4 rounded-md shadow-md">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 md:size-6 text-blue-950">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>    
+    </button>
+    <button class="next-btn ml-2 bg-gray-200 py-2 px-4 rounded-md shadow-md">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 md:size-6 text-blue-950">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>    
+    </button>
+  </div>
+</div>
+
+<!--scrolable cards-->
+<div class="relative flex flex-col items-center justify-center">
+  <div class="carousel flex w-full snap-x snap-mandatory gap-6 overflow-x-scroll scroll-smooth p-4">
+    <!--Card No 1-->
+    <div class="relative aspect-[1/1] w-[90%] max-w-xs shrink-0 snap-start snap-always rounded-xl bg-white shadow-sm shadow-black">
+      <img src="./packets/C.png" alt="C programming" class="w-full h-1/2 overflow-hidden object-cover rounded-xl"> 
+      <div class="p-4 space-y-2">
+        <h3 class="text-2xl font-bold">C programming</h3>
+        <p class="text-gray-800 two-lines">C is a powerful low-level language known for its efficiency and control over system resources.</p>
+        <a href="https://www.geeksforgeeks.org/c-language-introduction/" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-full">Learn More</a>
+      </div>
+    </div>
+
+    <!--Card No 2-->
+    <div class="relative aspect-[1/1] w-[90%] max-w-xs shrink-0 snap-start snap-always rounded-xl bg-white shadow-sm shadow-black">
+      <img src="./packets/CN.png" alt="Computer Network" class="w-full h-1/2 overflow-hidden object-cover rounded-xl">
+      <div class="p-4 space-y-2">
+        <h3 class="text-2xl font-bold">Computer Network</h3>
+        <p class="text-gray-800 two-lines">It involves the study of interconnected devices that communicate and share resources, enabling data exchange across local and global systems.</p>
+        <a href="https://www.geeksforgeeks.org/basics-computer-networking/" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-full">Learn More</a>
+      </div>
+    </div>
+
+    <!--Card No 2-->
+    <div class="relative aspect-[1/1] w-[90%] max-w-xs shrink-0 snap-start snap-always rounded-xl bg-white shadow-sm shadow-black">
+      <img src="./packets/AI.png" alt="Artificial Intelligence" class="w-full h-1/2 overflow-hidden object-cover rounded-xl">
+      <div class="p-4 space-y-2">
+        <h3 class="text-2xl font-bold">Artificial Intelligence</h3>
+        <p class="text-gray-800 two-lines">Artificial Intelligence is the field that focuses on creating systems capable of performing tasks that typically require human intelligence.</p>
+        <a href="https://www.sas.com/en_us/insights/analytics/what-is-artificial-intelligence.html" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-full">Learn More</a>
+      </div>
+    </div>
+
+    <!--Card No 4-->
+    <div class="relative aspect-[1/1] w-[90%] max-w-xs shrink-0 snap-start snap-always rounded-xl bg-white shadow-sm shadow-black">
+      <img src="./packets/JAVA.png" alt="Java" class="w-full h-1/2 overflow-hidden object-cover rounded-xl">
+      <div class="p-4 space-y-2">
+        <h3 class="text-2xl font-bold">Java</h3>
+        <p class="text-gray-800 two-lines">Java is a versatile, object-oriented programming language designed for building platform-independent applications.</p>
+        <a href="https://www.geeksforgeeks.org/introduction-to-java/" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-full">Learn More</a>
+      </div>
+    </div>
+
+    <!--Card No 5-->
+    <div class="relative aspect-[1/1] w-[90%] max-w-xs shrink-0 snap-start snap-always rounded-xl bg-white shadow-sm shadow-black">
+      <img src="./packets/PY.png" alt="Python programming" class="w-full h-1/2 overflow-hidden object-cover rounded-xl">
+      <div class="p-4 space-y-2">
+        <h3 class="text-2xl font-bold">Python</h3>
+        <p class="text-gray-800 two-lines">Python is a high-level, versatile language known for simplicity, readability, and a wide range of applications.</p>
+        <a href="https://www.python.org/about/" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-full">Learn More</a>
+      </div>
+    </div>
+
+    <!--Card No 6-->
+    <div class="relative aspect-[1/1] w-[90%] max-w-xs shrink-0 snap-start snap-always rounded-xl bg-white shadow-sm shadow-black">
+      <img src="./packets/DBMS.png" alt="DBMS" class="w-full h-1/2 overflow-hidden object-cover rounded-xl">
+      <div class="p-4 space-y-2">
+        <h3 class="text-2xl font-bold">DBMS</h3>
+        <p class="text-gray-800 two-lines">Database Management Systems are software systems that enable efficient creation, organization, and storage of data.</p>
+        <a href="https://www.geeksforgeeks.org/dbms/" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-full">Learn More</a>
+      </div>
+    </div>
+
+    <!--Card No 7-->
+    <div class="relative aspect-[1/1] w-[90%] max-w-xs shrink-0 snap-start snap-always rounded-xl bg-white shadow-sm shadow-black">
+      <img src="./packets/OS.png" alt="Operating System" class="w-full h-1/2 overflow-hidden object-cover rounded-xl">
+      <div class="p-4 space-y-2">
+        <h3 class="text-2xl font-bold">Operating System</h3>
+        <p class="text-gray-800 two-lines">This manages hardware and software resources, providing essential services like process management and file handling.</p>
+        <a href="https://www.geeksforgeeks.org/operating-systems/?ref=shm" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-full">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  </section>
+  <!--End Subjects section-->
+
+  <!--Facilities Section-->
+    <section id="facilities-section">
+      <div class="text-gray-800 bg-white z-0">
+        <div class="max-w-6xl mx-auto px-5 py-16 ">
+          <div class="text-center mb-20">
+            <h1 class="title-font  mb-4 text-4xl font-extrabold leading-10 tracking-tight sm:text-5xl sm:leading-none md:text-6xl">Facilities</h1>
+            <div class="flex mb-6 justify-center">
+              <div class="w-16 h-1 rounded-full bg-yellow-400 inline-flex"></div>
+            </div>
+            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Our college provides BCA students with state-of-the-art computer labs, a well-equipped library, and expert faculty, enhancing their learning experience. Additionally, students benefit from workshops, industry exposure, and collaborative spaces for effective study and networking.</p>
+          </div>
+          <div class="flex flex-col md:flex-row">
+            <div class="md:px-10 md:w-1/3 md:mb-0 mb-6 flex flex-col">
+                <div class="rounded bg-gray-100 p-4 shadow-md"  >
+                  <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>                </div>
+                  <div class="flex-grow ">
+                    <h2 class=" text-xl title-font font-medium mb-3">Vision</h2>
+                    <p class="leading-relaxed text-sm text-justify">The vision of the BCA program is to empower students with a strong foundation in computer applications and technology. It aims to foster innovation, critical thinking, and problem-solving skills necessary for the rapidly evolving tech landscape. The program also emphasizes industry relevance, preparing graduates for successful careers in IT. Ultimately, it seeks to create leaders who can contribute positively to society through technology.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="md:px-10 md:w-1/3 md:mb-0 mb-6 flex flex-col ">
+                <div class="rounded bg-gray-100 p-4 shadow-md">
+                  <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                  </div>
+                  <div class="flex-grow">
+                    <h2 class=" text-xl title-font font-medium mb-3">Best Practices</h2>
+                    <p class="leading-relaxed text-sm text-justify">
+                    The BCA program include hands-on learning through practical projects and internships that bridge theory and real-world application. Collaborative group work encourages teamwork and enhances communication skills among students. Regular industry interaction through workshops and guest lectures keeps students updated on current trends. Additionally, continuous assessment and feedback promote a culture of improvement and academic excellence. 
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="md:px-10 md:w-1/3 md:mb-0 mb-6 flex flex-col ">
+                <div class="rounded bg-gray-100 p-4 shadow-md">
+                  <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                  </div>
+                  <div class="flex-grow">
+                    <h2 class=" text-xl title-font font-medium mb-3">Objectives</h2>
+                    <p class="leading-relaxed text-sm text-justify">
+                      The objectives of the BCA program are to equip students with a comprehensive understanding of computer applications and programming. It aims to develop critical thinking and problem-solving skills essential for tackling real-world challenges. The program also seeks to foster effective communication and teamwork abilities among students. Ultimately, it prepares graduates for successful careers in the ever-evolving IT industry.
+                    </p>
+                  </div>
+                </div>
+            </div>
+</div>
+</section>
+  <!--End Facilities Section-->
+
+  <!--Recent Events-->
+  <section id="events-section">
+    <div class="flex flex-col md:flex-row bg-black">
+      <div class="m-auto">
+        <video src="./gallery/farewellvid.mp4" controls autoplay loop muted poster class="h-96 w-auto"></video>
+      </div>
+      <div class="bg-blue-950 w-full md:w-1/2">
+        <div class="text-white p-16">
+          <h1 class="title-font  mb-8 text-3xl font-extrabold leading-10 tracking-tight sm:text-4xl sm:leading-none md:text-5xl">Recent Events</h1>
+          <span class="flex flex-nowrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-yellow-400 mr-2">
+            <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+            <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z" clip-rule="evenodd" />
+          </svg>
+          09 september 2024</span>
+          <h2 class="font-bold text-2xl my-3 pb-2">2022-24 BATCH GRADUATION PARTY</h2>
+          <div class="flex space-x-6 border-b border-white pb-4">
+          <span class="flex flex-nowrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400 mr-2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          10:00 AM</span>
+          <span class="flex flex-nowrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400 mr-2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          BLDE College</span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--End Recent Events-->
+
+  <!--Faculty section-->
+  <section id="faculty-section">
+    <div class="py-6 bg-white text-black">
+    <div class="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
+      <p class="p-2 text-sm font-medium tracking-wider text-center uppercase">faculty</p>
+      <h1 class="text-4xl font-bold leading-none text-center sm:text-5xl">The talented lecturers building curriers</h1>
+      <div class="flex flex-row flex-wrap-reverse justify-center mt-8">
+        <div class="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-100 shadow-md">
+          <img alt="" class="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="./logos/profile.png">
+          <div class="flex-1 my-4">
+            <p class="text-xl font-semibold leading-snug">Lecturer Name</p>
+            <p>Guest Lecturer</p>
+          </div>
+          <div class="flex items-center justify-center p-3 space-x-3 border-t-2">
+            <a rel="noopener noreferrer" href="#" title="Email" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="LinkedIn" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="GitHub" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-100 shadow-md">
+          <img alt="" class="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="./logos/profile.png">
+          <div class="flex-1 my-4">
+            <p class="text-xl font-semibold leading-snug">Lecturer Name</p>
+            <p>Guest Lecturer</p>
+          </div>
+          <div class="flex items-center justify-center p-3 space-x-3 border-t-2">
+            <a rel="noopener noreferrer" href="#" title="Email" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="LinkedIn" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="GitHub" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-100 shadow-md">
+          <img alt="" class="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="./logos/profile.png">
+          <div class="flex-1 my-4">
+            <p class="text-xl font-semibold leading-snug">Lecturer Name</p>
+            <p>Guest Lecturer</p>
+          </div>
+          <div class="flex items-center justify-center p-3 space-x-3 border-t-2">
+            <a rel="noopener noreferrer" href="#" title="Email" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="LinkedIn" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="GitHub" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-100 shadow-md">
+          <img alt="" class="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="./logos/profile.png">
+          <div class="flex-1 my-4">
+            <p class="text-xl font-semibold leading-snug">Lecturer Name</p>
+            <p>Guest Lecturer</p>
+          </div>
+          <div class="flex items-center justify-center p-3 space-x-3 border-t-2">
+            <a rel="noopener noreferrer" href="#" title="Email" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            <a rel="noopener noreferrer" href="#" title="LinkedIn" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="GitHub" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-100 shadow-md">
+          <img alt="" class="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="./logos/profile.png">
+          <div class="flex-1 my-4">
+            <p class="text-xl font-semibold leading-snug">Lecturer Name</p>
+            <p>Guest Lecturer</p>
+          </div>
+          <div class="flex items-center justify-center p-3 space-x-3 border-t-2">
+            <a rel="noopener noreferrer" href="#" title="Email" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="LinkedIn" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="GitHub" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-100 shadow-md">
+          <img alt="" class="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="./logos/profile.png">
+          <div class="flex-1 my-4">
+            <p class="text-xl font-semibold leading-snug">Lecturer Name</p>
+            <p>Guest Lecturer</p>
+          </div>
+          <div class="flex items-center justify-center p-3 space-x-3 border-t-2">
+            <a rel="noopener noreferrer" href="#" title="Email" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="LinkedIn" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
+              </svg>
+            </a>
+            <a rel="noopener noreferrer" href="#" title="GitHub" class="text-gray-900 hover:text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5">
+                <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!--End faculty section-->
+
+  <!--Footer-->
+  <footer class="w-full bg-blue-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-white">
+        <!--Grid-->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-8 py-10 max-w-xs mx-auto sm:max-w-2xl lg:max-w-full">
+            <div class="col-span-full lg:mb-10 max-lg:border-b max-lg:pb-8 lg:border-r border-gray-100 lg:col-span-2 lg:max-w-xs">
+                <ul class="grid gap-5">
+                    <li class="flex items-center justify-center gap-2 lg:justify-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                      </svg>                      
+                            bldeabca@gmail.com    
+                    </li>
+                    <li class="flex items-center justify-center gap-2 lg:justify-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                      </svg>                      
+                            +91 26734 93883
+                    </li>
+                    <li class="flex items-center justify-center gap-2 lg:justify-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-yellow-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                      </svg>
+                      
+                          BLDE Campus, Jamakhandi.
+                    </li>
+                </ul>
+            </div>
+            <!--End Col-->
+            <div class="lg:mx-auto text-left ">
+                <h4 class="text-lg text-white font-medium mb-7">Featured Links</h4>
+                <ul class="text-sm  transition-all duration-500">
+                    <li class="mb-6"><a href="#"  class="text-gray-100 hover:text-yellow-400 cursor-pointer">Home</a></li>
+                    <li class="mb-6"><a onclick="goToAbout()"  class=" text-gray-100 hover:text-yellow-400 cursor-pointer">About</a></li>
+                    <li class="mb-6"><a onclick="goToSubjects()"  class=" text-gray-100 hover:text-yellow-400 cursor-pointer">Subjects</a></li>
+                    <li><a onclick="goToFaculty()"  class=" text-gray-100 hover:text-yellow-400 cursor-pointer">Faculty</a></li>
+                </ul>
+            </div>
+            <!--End Col-->
+            <div class="lg:mx-auto text-left">
+                <h4 class="text-lg text-white font-medium mb-7">Quick Links</h4>
+                <ul class="text-sm  transition-all duration-500">
+                    <li class="mb-6"><a href="javascript:;"  class="text-gray-100 hover:text-yellow-400">Gallery</a></li>
+                    <li class="mb-6"><a href="javascript:;"  class=" text-gray-100 hover:text-yellow-400">Sports</a></li>
+                    <li><a href="javascript:;"  class=" text-gray-100 hover:text-yellow-400">Hostel</a></li>
+                </ul>
+            </div>
+            <!--End Col-->
+            <div class="lg:mx-auto text-left ">
+                <h4 class="text-lg text-white font-medium mb-7">Support</h4>
+                <ul class="text-sm  transition-all duration-500">
+                    <li class="mb-6"><a href="javascript:;"  class="text-gray-100 hover:text-yellow-400">Student Support</a></li>
+                    <li ><a href="javascript:;"  class=" text-gray-100 hover:text-yellow-400">Rules & Regulations</a></li>
+                </ul>
+            </div>
+            <!--End Col-->
+           
+        </div>
+        <!--Grid-->
+        <div class="py-7 border-t border-gray-200">
+            <div class="flex items-center justify-center ">
+                <span class="text-sm text-gray-400 ">©<a href="https://pagedone.io/">BLDEA's BCA</a> 2024, All rights reserved.</span>
+           
+            </div>
+        </div>
+    </div>
+</footer>
+<!--Footer-->
+
+<!--Back to top btn-->
+<button id="backToTopBtn" class="hidden fixed bottom-12 right-10 p-2 bg-yellow-400 rounded-md opacity-85 hover:opacity-100 focus:bg-gray-200">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-950">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+</svg>
+</button>
+    <script src="script.js"></script>
+</body>
+</html>
